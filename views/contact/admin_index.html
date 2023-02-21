@@ -1,0 +1,28 @@
+<h4>Хүмүүсийн илгээсэн мэссэжүүд</h4>
+
+<table class="table table-striped mt-3">
+
+    <tr style="background-color: gray;">
+        <td>#</td>
+        <td>Нэр</td>
+        <td>Имэйл</td>
+        <td>Мэссэж</td>
+    </tr>
+
+    <?php foreach($data['messages'] as $index=>$msg):?>
+    <tr>
+        <td width="5%">
+            <?=$index+1?>
+        </td>
+        <td width="10%">
+            <?=$msg['name']?>
+        </td>
+        <td width="25%">
+            <?=$msg['email']?>
+        </td>
+        <td width="50%">
+            <?=$msg['message']?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>

@@ -1,0 +1,20 @@
+<h4>Блогийг засварлах</h4>
+
+<form action="" method="POST">
+    <div class="form-group">
+        <label for="title">Блогийн гарчиг</label>
+        <input type="text" class="form-control" value="<?=$data['web']['title']?>" name="title" />
+    </div>
+    <div class="form-group">
+        <label for="content">Блогийн контент</label>
+        <textarea name="content" id="content" class="form-control" cols="30"
+            rows="10"><?=$data['web']['content']?></textarea>
+    </div>
+    <div class="form-group">
+        <label for="is_published">Publish хийх эсэх</label>
+        <input type="checkbox" name="is_published" <?php if($data['web']['is_published']=='1' )
+            echo ' checked="checked" ' ;?> />
+    </div>
+    <a href="/<?=App::getRouter()->getLanguage()?>/admin/pages" class="btn btn-sm btn-primary mt-3">Буцах</a>
+    <input type="submit" value="Өөрчлөлтийг хадгал" class="btn btn-sm btn-success mt-3" />
+</form>

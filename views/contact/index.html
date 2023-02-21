@@ -1,0 +1,14 @@
+<h4>
+    <?=__("default.contact_title")?>
+</h4>
+
+<form action="/<?=App::getRouter()->getLanguage()?>/contact" method="POST">
+    <input placeholder="<?=__('default.contact_placeholder_name')?>" type="text" class="form-control mt-5"
+        name="name"><br>
+    <input type="text" class="form-control" name="email" placeholder="<?=__('default.contact_placeholder_email')?>"><br>
+    <textarea name="message" class="form-control" cols="30" rows="10"
+        placeholder="<?=__('default.contact_placeholder_message')?>"></textarea>
+    <button class="btn btn-primary btn-lg btn-block mt-3" type="submit">
+        <?=__("default.contact_submit")?>
+    </button>
+</form>
