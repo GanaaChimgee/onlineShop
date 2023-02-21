@@ -8,15 +8,16 @@ class App
     {
         self::$router = new Router($uri);
 
+        // TODO: authentication template
         // Админ хэрэглэгч үнэхээр логин хийсэн эсэхийг шалгах
-        if (self::$router->getRoute() == 'admin' && Session::get('role') != 'admin') {
-            // Login хуудас руу бол харин логин хийгээгүй хүн хандаж болно.
-            if (self::$router->getPathWithoutLanguage() != 'admin/users/login') {
-                // Логин хийгээгүй хүн админ route руу орохыг оролдож буй тул хориглоно.
-                Session::setMessage("Та эхлээд логин хийж байж админ хуудсуудыг үзэх боломжтой!");
-                Router::redirect("/" . App::getRouter()->getLanguage() . "/admin/users/login");
-            }
-        }
+        // if (self::$router->getRoute() == 'admin' && Session::get('role') != 'admin') {
+        //     // Login хуудас руу бол харин логин хийгээгүй хүн хандаж болно.
+        //     if (self::$router->getPathWithoutLanguage() != 'admin/users/login') {
+        //         // Логин хийгээгүй хүн админ route руу орохыг оролдож буй тул хориглоно.
+        //         Session::setMessage("Та эхлээд логин хийж байж админ хуудсуудыг үзэх боломжтой!");
+        //         Router::redirect("/" . App::getRouter()->getLanguage() . "/admin/users/login");
+        //     }
+        // }
 
         // Өгөгдлийн сангийн утилитийг ачаалах
         self::$db = new Db(Config::get('db.host'), Config::get('db.database'), Config::get('db.user'), Config::get('db.password'));
