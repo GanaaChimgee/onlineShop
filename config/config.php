@@ -1,5 +1,5 @@
 <?php
-Config::set('site', 'mycms.mn');
+Config::set('site', 'E-commerce');
 
 // Өгөгдлийн сангийн тохиргоо
 Config::set('db.database', 'puma');
@@ -10,10 +10,10 @@ Config::set('db.host', 'localhost');
 // Системийн default утгуудыг бэлтгэх
 Config::set('routes', array(
     'default' => '',
-    'admin' => 'admin_',
+    // 'admin' => 'admin_',
 ));
 
-Config::set('languages', array('mn', 'en', 'jp'));
+Config::set('languages', array('mn', 'en'));
 
 Config::set('default_route', 'default');
 Config::set('default_language', 'mn');

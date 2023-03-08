@@ -4,7 +4,7 @@ class PagesController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->model = new Page();
+        $this->model = new Product();
     }
 
     // Вэб хуудсыг устгана
@@ -33,13 +33,20 @@ class PagesController extends Controller
     {
         // Базаас бүх вэбүүдийг уншиж авна
         // TODO: Page model needs to be adapted (re-write sql queries)
-        //$webs = $this->model->getList();
-        $webs = [];
+        $products = $this->model->getList();
+        // echo "<pre>";
+        // print_r($products);
+        // exit;
 
-        return (new View(['site_title' => $this->params[0] . ' Програмчлалын блог',
-            'webs' => $webs,
-        ], 'pages' . DS . 'index.html'))->render();
+
+
+        return (new View([
+            'site_title' => $this->params[0] . ' Програмчлалын блог',
+            'products' => $products,
+        ], 'pages' . DS . 'index.php'))->render();
     }
+
+
 
     // Бүх вэб хуудасны жагсаалтыг үзүүлэх
     // public function admin_index()
@@ -94,15 +101,15 @@ class PagesController extends Controller
     // }
 
     // Ямар нэг вэб хуудсыг контентийг уншиж авч үзүүлэх
-    public function view()
-    {
-        // Тухайн вэб хуудасны мэдээллийг базаас ачаална
-        $web = $this->model->getByAlias($this->params[0]);
+    // public function view()
+    // {
+    //     // Тухайн вэб хуудасны мэдээллийг базаас ачаална
+    //     $web = $this->model->getByAlias($this->params[0]);
 
-        return (new View(['site_title' => $this->params[0] . ' хуудас',
-            'web' => $web[0],
-        ], 'pages' . DS . 'view.html'))->render();
-    }
+    //     return (new View(['site_title' => $this->params[0] . ' хуудас',
+    //         'web' => $web[0],
+    //     ], 'pages' . DS . 'index.html'))->render();
+    // }
 
     // public function admin_view()
     // {

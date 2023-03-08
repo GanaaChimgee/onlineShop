@@ -1,6 +1,9 @@
 <?php
 class App
 {
+    /**
+     * router: ....
+     */
     protected static $router;
     public static $db;
 
@@ -37,9 +40,11 @@ class App
         } else {
             echo "$controller классын $action method байхгүй байна.";
         }
-
     }
 
+    /**
+     * @returns a route
+     */
     public static function getRouter()
     {
         return self::$router;

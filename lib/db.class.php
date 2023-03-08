@@ -9,6 +9,7 @@ class Db
         $this->connection = new mysqli($host, $user, $password, $db);
 
         if (mysqli_connect_error()) {
+            //error dotroo aldaanii code-g hij ogno..
             $this->error = mysqli_connect_error();
             die("Mysql сэрвэртэй холбогдох үед алдаа гарлаа: " . $this->error . " ( Алдааны дугаар: #" . mysqli_connect_errno() . " )");
         }
@@ -43,7 +44,9 @@ class Db
 
     public function escape($value)
     {
-        // ' " \n
+
+        // ' " \n escape ni edgeer tusgai temdegtuuudiig zailuulj ogno..
+        // mysqli_real_escape_string ni $connection-g charset ashiglan medeelliig awaad escape hj ogno. 
         return mysqli_real_escape_string($this->connection, $value);
     }
 }
