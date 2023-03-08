@@ -1,4 +1,5 @@
 <?php
+
 class Session
 {
     public static function setMessage($message)

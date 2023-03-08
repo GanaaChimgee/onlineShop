@@ -7,5 +7,4 @@ class Model
     {
         $this->db = App::$db;
     }
-
 }

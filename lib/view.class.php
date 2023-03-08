@@ -10,6 +10,8 @@ class View
         $this->file = VIEWS_PATH . $file;
     }
 
+
+
     public function render()
     {
         // Броуезер руу гаргалгүй буффер руу түр гаргах горимыг нээнэ.
@@ -20,6 +22,8 @@ class View
         // Контроллероос дамжуулсан html файлыг render хийнэ
         require $this->file;
 
+
+
         // Энэ html файлын буфферт орж ирсэн контентийг $content хувьсагчид хийе
         $content = ob_get_clean();
 
@@ -28,7 +32,11 @@ class View
 
         $route = App::getRouter()->getRoute();
 
-        require ROOT . DS . 'views' . DS . $route . '.html';
-    }
 
+        //'views' . DS . $route = default.php
+        require ROOT . DS . 'views' . DS . $route . '.php';
+        // echo "<pre>";
+        // var_dump($route);
+        // exit;
+    }
 }
