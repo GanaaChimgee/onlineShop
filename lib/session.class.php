@@ -9,7 +9,7 @@ class Session
 
     public static function hasMessage()
     {
-        return !is_null($_SESSION['message']);
+        return $_SESSION['message'] ?? null;
     }
 
     public static function flash()
@@ -18,6 +18,7 @@ class Session
         unset($_SESSION['message']);
         return $message;
     }
+
 
     // Session руу утга хадгалах
     public static function set($key, $value)
