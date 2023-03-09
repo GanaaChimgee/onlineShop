@@ -34,6 +34,7 @@ class UsersController extends Controller
 
                 if ($loginOk) {
                     var_dump("done, nice!");
+                    Session::set('cart', []);
                     header("Location: /");
                 } else {
                     Session::setMessage("wrong password or email");
