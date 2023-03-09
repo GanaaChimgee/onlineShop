@@ -45,31 +45,41 @@
                     <ul class="nav flex-grow-1">
                         <li class="nav-item">
 
-                            <a class="nav-link text-light" href="/">Home</a>
+                            <a class="nav-link text-light" href="/">Products</a>
                         </li>
 
-                        <?php if (Session::get('user') === null) : ?>
+                        <?php if (Session::get('user') !== null) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="/login">Login</a>
+                                <a class="nav-link text-light" href="/orders">Orders</a>
                             </li>
                         <?php endif ?>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link text-light" href="/login/basket">Basket</a>
-                        </li> -->
+
 
 
                     </ul>
 
                     <?php if (Session::get('user') !== null) : ?>
-                        <div class="text-light">
-                            <div>
+                        <div class="text-light d-flex">
+                            <a class="me-2 btn btn-primary" href="/orders/confirm">
+                                Cart:
+                                <?php
+                                echo count(Session::get('cart'));
+                                ?>
+                            </a>
+                            <p class="me-2">
+                                <?php
+                                echo Session::get('user')["id"];
+                                ?>
+                            </p>
+                            <p class="me-2">
                                 <?php
                                 echo Session::get('user')["NAME"];
                                 ?>
-
-                            </div>
-                            <a href="/users?action=logout">logout</a>
+                            </p>
                         </div>
+                        <a href="/users?action=logout">logout</a>
+                    <?php else : ?>
+                        <a class="nav-link text-light" href="/login">Login</a>
                     <?php endif ?>
                 </div>
             </div>
@@ -91,9 +101,9 @@
         </div>
     </main>
 
-    <footer class="footer pt-3 text-center">
+    <!-- <footer class="footer pt-3 text-center">
         Copyright by Gana 2023
-    </footer>
+    </footer> -->
 </body>
 
 </html>
