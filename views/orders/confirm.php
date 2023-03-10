@@ -1,12 +1,17 @@
 <h3>Order confirmation</h3>
 <form method="POST" action="/orders?action=order_confirm">
     <div class="container d-flex">
-        <?php foreach (Session::get('cart') as $item) : ?>
+        <?php foreach (Session::get('cart') as $product) : ?>
             <div class="card ms-4" style="width: 16rem;">
                 <div class="card-body">
-                    <p class="card-title">
-                        <?php echo $item; ?>
-                    </p>
+                    <img src="<?php echo $product["image"]; ?>" alt="product pic">
+                    <div class="card-body">
+                        <p class="card-title">
+                            <?php echo $product["NAME"]; ?>
+                        </p>
+                        <p class="card-text"><?php echo $product["color"]; ?></p>
+                        <p class="text-success"><?php echo $product["price"]; ?></p>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>
