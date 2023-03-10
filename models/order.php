@@ -11,16 +11,18 @@
             return $this->db->query($sql);
         }
 
-        //Web huudsiig alias(slug)-aar ni shuuj ogoh function....
-
-        public function getByName($name)
+        public function getOrder($id)
         {
             //$name db g duudahad url deer gargahad ni tsewerlej ogood gargah func...
-            $name = $this->db->escape($name);
-            $sql = "select * from product where name='$name' limit 1";
-            return $this->db->query($sql) ?? null;
+            $orderDetail = "SELECT * FROM orders WHERE id = $id";
+            $products = "SELECT product_id, NAME, color, price, image FROM product_in_order INNER JOIN product WHERE product_in_order.order_id = '$id' AND product_in_order.product_id = product.id";
+
+            $result['order'] = $this->db->query($orderDetail)[0];
+            $result['products'] = $this->db->query($products);
+            return $result;
         }
 
+        // note-g batalgaajuulah....
         public function confirm($note)
         {
             $customer_id = Session::get('user')['id'];
@@ -39,7 +41,12 @@
         public function delete($orderId)
         {
             $sql = "DELETE FROM orders WHERE id = '$orderId'";
-            var_dump($orderId, $orderId);
+            return $this->db->query($sql);
+        }
+
+        public function update($note, $id)
+        {
+            $sql = "UPDATE orders SET note = '$note' WHERE orders.id = '$id'";
             return $this->db->query($sql);
         }
     }
