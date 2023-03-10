@@ -1,8 +1,5 @@
-<?php
+<div>
+    <?php
     phpinfo();
-
-
-    /*
-     */
-?>
-
+    ?>
+</div>
