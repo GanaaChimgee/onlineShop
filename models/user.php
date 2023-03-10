@@ -16,12 +16,8 @@ class User extends Model
         $user = $this->db->query(sprintf($sql, $email));
 
         $passwordOk = password_verify($password, $user[0]["PASSWORD"]);
-        //$passwordOk = $password == $user[0]["PASSWORD"];
 
         if ($passwordOk === true) {
-            // $this->ensureSession();
-            //session_regenerate_id();
-            //$_SESSION['adminLogin'] = $username;
             Session::set('user', $user[0]);
             return true;
         } else {

@@ -11,6 +11,10 @@
             return $this->db->query($sql);
         }
 
+        /**
+         * @param string $id of order
+         * @return array of order and products
+         */
         public function getOrder($id)
         {
             //$name db g duudahad url deer gargahad ni tsewerlej ogood gargah func...

@@ -35,8 +35,5 @@ class View
 
         //'views' . DS . $route = default.php
         require ROOT . DS . 'views' . DS . $route . '.php';
-        // echo "<pre>";
-        // var_dump($route);
-        // exit;
     }
 }

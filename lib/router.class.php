@@ -54,14 +54,6 @@ class Router
             // Параметрүүдийг авах
             $this->params = $paths;
         }
-
-        // echo "<pre>";
-        // print_r("Route: " . $this->getRoute() . PHP_EOL);
-        // print_r("Language: " . $this->getLanguage() . PHP_EOL);
-        // print_r("Controller: " . $this->getController() . PHP_EOL);
-        // print_r("Action: " . $this->getMethodPrefix() . $this->getAction() . PHP_EOL);
-        // echo "Params:" . PHP_EOL;
-        // print_r($this->getParams());
     }
 
     public static function redirect($path)

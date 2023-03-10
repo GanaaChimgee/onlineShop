@@ -10,7 +10,6 @@ Config::set('db.host', 'localhost');
 // Системийн default утгуудыг бэлтгэх
 Config::set('routes', array(
     'default' => '',
-    // 'admin' => 'admin_',
 ));
 
 Config::set('languages', array('mn', 'en'));

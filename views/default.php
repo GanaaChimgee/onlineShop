@@ -15,21 +15,7 @@
     </title>
 </head>
 
-<!-- TODO: find out how templates get referenced -->
-
 <body>
-
-    <!-- <header>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-        </ul>
-    </header> -->
-
     <header>
 
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
