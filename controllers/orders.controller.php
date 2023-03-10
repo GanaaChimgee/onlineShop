@@ -10,7 +10,6 @@ class OrdersController extends Controller
     // buh order-uudiin list-g duudah func....
     public function index()
     {
-        var_dump($_REQUEST);
         if (array_key_exists('id', $_REQUEST)) {
             $this->showOrderDetails();
             return;

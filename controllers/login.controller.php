@@ -13,13 +13,4 @@ class LoginController extends Controller
         if (!Session::hasMessage()) Session::setMessage("please give the right password...");
         return (new View(['site_title' => $this->params[0] ?? null], 'login' . DS . 'index.html'))->render();
     }
-
-
-    // Админ Logout хийх функц
-    // public function admin_logout()
-    // {
-    //     Session::destroy();
-    //     // Логин хуудас руу үсэргэнэ
-    //     Router::redirect("/" . App::getRouter()->getLanguage() . "/admin/users/login");
-    // }
 }

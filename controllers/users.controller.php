@@ -33,7 +33,6 @@ class UsersController extends Controller
 
 
                 if ($loginOk) {
-                    var_dump("done, nice!");
                     Session::set('cart', []);
                     header("Location: /");
                 } else {
@@ -45,10 +44,8 @@ class UsersController extends Controller
 
             Session::setMessage("password or email is empty");
             header("Location: /login");
-            return;
         } else {
             var_dump("_POST not found");
-            //$this->renderAdmin('login/login', []);
         }
     }
 
@@ -63,17 +60,14 @@ class UsersController extends Controller
             if (!empty($email) && !empty($password)) {
                 $loginOk = $this->model->handleRegister($email, $password, $name);
                 if ($loginOk) {
-                    //var_dump("done, nice!");
                     header("Location: /login");
                     return;
                 }
             }
-            var_dump("missing pwd or username");
             header("Location: /register");
             return;
         } else {
             var_dump("_POST not found");
-            //$this->renderAdmin('login/login', []);
         }
     }
 
