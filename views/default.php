@@ -87,9 +87,9 @@
         </div>
     </main>
 
-    <!-- <footer class="footer pt-3 text-center">
+    <footer class="footer pt-3 text-center">
         Copyright by Gana 2023
-    </footer> -->
+    </footer>
 </body>
 
 </html>

@@ -36,7 +36,8 @@
             $get_created_order_id = "SELECT id FROM orders WHERE customer_id = '$customer_id' ORDER BY id DESC";
             $orderId = $this->db->query($get_created_order_id)[0]['id'];
 
-            foreach (Session::get('cart') as $productId) {
+            foreach (Session::get('cart') as $product) {
+                $productId = $product['id'];
                 $create_order_script = "INSERT INTO product_in_order(order_id, product_id) VALUES('$orderId', '$productId')";
                 $this->db->query($create_order_script);
             }
