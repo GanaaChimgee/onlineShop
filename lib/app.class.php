@@ -1,21 +1,26 @@
 <?php
 class App
 {
-    /**
-     * router: ....
-     */
+    /*  */
+
     protected static $router;
     public static $db;
 
 
+    /**
+     * The run() function is the main function of the framework. It is responsible for loading the
+     * router, database, language, and the controller
+     * 
+     * @param uri The URI of the request.
+     */
     public function run($uri)
     {
         self::$router = new Router($uri);
 
-        // Өгөгдлийн сангийн утилитийг ачаалах
+
         self::$db = new Db(Config::get('db.host'), Config::get('db.database'), Config::get('db.user'), Config::get('db.password'));
 
-        // Хэлний мэдээллийг ачаалах
+
         Lang::load(self::$router->getLanguage());
 
         // Дуудагдах ёстой контроллер классын нэрийг угсрах
@@ -25,6 +30,8 @@ class App
 
         // Контроллерийн функцийг нь дуудах
 
+        /* Creating a new object of the controller class and then calling the method of the controller
+        class. */
         $obj = new $controller();
         if (method_exists($controller, $action)) {
             echo $obj->$action();
@@ -33,9 +40,10 @@ class App
         }
     }
 
-    /**
-     * @returns a route
-     */
+
+    /* Returning the router object. 
+    * 
+    */
     public static function getRouter()
     {
         return self::$router;

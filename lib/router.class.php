@@ -62,11 +62,21 @@ class Router
         exit;
     }
 
+    /**
+     * It returns the full path of the current page.
+     * 
+     * @return The full path of the current page.
+     */
     public function getFullPath()
     {
         return $_SERVER['REQUEST_URI'];
     }
 
+    /**
+     * It removes the language code from the URL
+     * 
+     * @return The path without the language.
+     */
     public function getPathWithoutLanguage()
     {
         $uri = str_replace("/mn/", "", $_SERVER['REQUEST_URI']);

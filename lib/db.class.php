@@ -46,6 +46,13 @@ class Db
         return $data;
     }
 
+    /**
+     * It escapes the string by adding a backslash in front of the following characters: \x00, \n, \r,
+     * \, ', " and \x1a
+     * 
+     * @param value The value to be escaped. Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and
+     * Control-Z.
+     */
     public function escape($value)
     {
 

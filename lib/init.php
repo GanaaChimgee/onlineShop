@@ -1,6 +1,12 @@
 <?php
+/* Starting a session. */
 session_start();
 
+/**
+ * It prints the array in a readable format and then exits the script.
+ * 
+ * @param array The array to be sorted.
+ */
 function dd($array)
 {
     // laravel => dd => debug and die
@@ -9,6 +15,8 @@ function dd($array)
     exit;
 }
 
+/* A function that is called when a class is instantiated. It checks if the class exists and if it
+does, it includes it. */
 spl_autoload_register(function ($class_name) {
     $class_name = strtolower($class_name);
 
@@ -29,6 +37,14 @@ spl_autoload_register(function ($class_name) {
 
 require_once ROOT . DS . 'config' . DS . 'config.php';
 
+/**
+ * If the key exists in the language file, return the value, otherwise return the default value
+ * 
+ * @param key The key of the language item.
+ * @param default_value The default value to return if the key is not found.
+ * 
+ * @return The value of the key if it exists, otherwise the default value.
+ */
 function __($key, $default_value = '')
 {
     return Lang::get($key) ?? $default_value;
