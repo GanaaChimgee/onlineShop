@@ -1,7 +1,7 @@
  <div class="container d-flex flex-column">
 
      <?php foreach ($data['orders'] as $order) : ?>
-         <div class="card mb-4" style="width: 16rem;">
+         <div class="card mb-4" style="width: 50%;">
              <div class="card-body">
                  <form method="POST" action="/orders?action=order_edit">
                      <p class="card-title">

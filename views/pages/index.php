@@ -3,6 +3,7 @@
     <?php foreach ($data['products'] as $product) : ?>
 
         <div class="card ms-3">
+
             <img src="<?php echo $product["image"]; ?>" alt="product pic">
 
             <div class="card-body">

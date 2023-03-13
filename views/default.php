@@ -46,24 +46,24 @@
 
                     <?php if (Session::get('user') !== null) : ?>
                         <div class="text-light d-flex">
-                            <a class="me-2 btn btn-primary" href="/orders/confirm">
+                            <a class="m-2 p-2 btn btn-primary" href="/orders/confirm">
                                 Cart:
                                 <?php
                                 echo count(Session::get('cart'));
                                 ?>
                             </a>
-                            <p class="me-2">
+                            <p class=" m-2 p-2">
                                 <?php
                                 echo Session::get('user')["id"];
                                 ?>
                             </p>
-                            <p class="me-2">
+                            <p class="m-2 p-2">
                                 <?php
                                 echo Session::get('user')["NAME"];
                                 ?>
                             </p>
                         </div>
-                        <a href="/users?action=logout">logout</a>
+                        <a href="/users?action=logout" class="me-2 btn btn-primary">logout</a>
                     <?php else : ?>
                         <a class="nav-link text-light" href="/login">Login</a>
                     <?php endif ?>
@@ -87,7 +87,7 @@
         </div>
     </main>
 
-    <footer class="footer pt-3 text-center">
+    <footer class="footer pt-3 text-center" style="position:fixed">
         Copyright by Gana 2023
     </footer>
 </body>
