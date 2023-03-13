@@ -3,8 +3,9 @@
     <div class="container d-flex">
         <?php foreach (Session::get('cart') as $product) : ?>
             <div class="card ms-4" style="width: 16rem;">
-                <div class="card-body">
-                    <img src="<?php echo $product["image"]; ?>" alt="product pic">
+                <div class="card-body;">
+
+                    <img style="width:100%; height:100%;" src="<?php echo $product["image"]; ?>" alt="product pic">
                     <div class="card-body">
                         <p class="card-title">
                             <?php echo $product["NAME"]; ?>

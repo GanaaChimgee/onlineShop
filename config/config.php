@@ -1,5 +1,5 @@
 <?php
-Config::set('site', 'E-commerce');
+Config::set('site', 'Limited-Edition');
 
 // Өгөгдлийн сангийн тохиргоо
 Config::set('db.database', 'puma');

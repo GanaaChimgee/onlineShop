@@ -7,7 +7,11 @@ class LoginController extends Controller
         parent::__construct();
         $this->model = new User();
     }
-
+    /**
+     * 
+     * 
+     * @return view
+     */
     public function index()
     {
         if (!Session::hasMessage()) Session::setMessage("please give the right password...");

@@ -7,6 +7,7 @@ class App
     protected static $router;
     public static $db;
 
+
     public function run($uri)
     {
         self::$router = new Router($uri);
@@ -23,6 +24,7 @@ class App
         $action = self::$router->getMethodPrefix() . self::$router->getAction();
 
         // Контроллерийн функцийг нь дуудах
+
         $obj = new $controller();
         if (method_exists($controller, $action)) {
             echo $obj->$action();

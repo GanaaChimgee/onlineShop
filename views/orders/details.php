@@ -8,7 +8,7 @@
     <h4>Booked products</h4>
     <div class="container d-flex">
         <?php foreach ($data['products'] as $product) : ?>
-            <div class="card ms-4" style="width: 16rem;">
+            <div class="card ms-4" style="width:140px; height:80%; background-color: #9DC08B;">
                 <img src="<?php echo $product["image"]; ?>" alt="product pic">
                 <div class="card-body">
                     <p class="card-title">

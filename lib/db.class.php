@@ -23,6 +23,10 @@ class Db
         }
 
         // SQL Командыг ажиллуулах
+        /**
+         * @return $result is boolean then stop the code and return it.
+         *
+         */
         $result = $this->connection->query($sql);
 
         if (mysqli_error($this->connection)) {

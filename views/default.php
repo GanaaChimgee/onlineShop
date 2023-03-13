@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.png">
+
     <link rel="stylesheet" href="/css/base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -20,13 +20,13 @@
 
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
             <div class="container-fluid">
-                <nav class="navbar bg-body-tertiary">
+                <!-- <nav class="navbar bg-body-tertiary">
                     <div class="container">
                         <a class="navbar-brand" href="#">
 
                         </a>
                     </div>
-                </nav>
+                </nav> -->
                 <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
                     <ul class="nav flex-grow-1">
                         <li class="nav-item">
@@ -47,23 +47,40 @@
                     <?php if (Session::get('user') !== null) : ?>
                         <div class="text-light d-flex">
                             <a class="me-2 btn btn-primary" href="/orders/confirm">
-                                Cart:
-                                <?php
-                                echo count(Session::get('cart'));
-                                ?>
+                                <button type="button" class="btn btn-primary position-relative">
+                                    Cart:
+
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                        <?php
+                                        echo count(Session::get('cart'));
+                                        ?>
+                                        <span class="visually-hidden">unread messages</span></span>
+                                </button>
                             </a>
-                            <p class="me-2">
+                            <!-- <p class="me-2">
                                 <?php
                                 echo Session::get('user')["id"];
                                 ?>
-                            </p>
-                            <p class="me-2">
-                                <?php
-                                echo Session::get('user')["NAME"];
-                                ?>
-                            </p>
+                            </p> -->
+
+
+
+                            <button type="button" class="btn btn-primary position-relative">
+
+                                Username: <?php
+                                            echo Session::get('user')["NAME"];
+                                            ?><span class="position-absolute top-0 start-100 translate-middle p-2">
+                                    <span class="visually-hidden">null</span></span>
+                            </button>
+
+
                         </div>
-                        <a href="/users?action=logout">logout</a>
+
+                        <a class="nav-link text-light " href="/users?action=logout">
+                            <button type="button" class="btn btn-dark position-relative">
+                                Logout
+                            </button>
+                        </a>
                     <?php else : ?>
                         <a class="nav-link text-light" href="/login">Login</a>
                     <?php endif ?>
@@ -74,6 +91,7 @@
     </header>
 
     <main class="container mt-5 d-flex">
+        <!-- <div class="card ms-4"> -->
         <div class="flex-grow-1">
             <?php if (Session::hasMessage()) : ?>
                 <div class="alert alert-info" role="alert">
@@ -87,7 +105,7 @@
         </div>
     </main>
 
-    <footer class="footer pt-3 text-center">
+    <footer class="footer pt-3 text-center ">
         Copyright by Gana 2023
     </footer>
 </body>
