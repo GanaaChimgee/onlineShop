@@ -11,7 +11,7 @@ class Db
         if (mysqli_connect_error()) {
             //error dotroo aldaanii code-g hij ogno..
             $this->error = mysqli_connect_error();
-            die("Mysql сэрвэртэй холбогдох үед алдаа гарлаа: " . $this->error . " ( Алдааны дугаар: #" . mysqli_connect_errno() . " )");
+            die("da ist ein Fehler treten: " . $this->error . " ( Error Nummer: #" . mysqli_connect_errno() . " )");
         }
     }
 
