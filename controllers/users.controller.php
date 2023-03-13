@@ -8,6 +8,12 @@ class UsersController extends Controller
         $this->model = new User();
     }
 
+    /**
+     * If the action is login, call the login function, if the action is register, call the register
+     * function, if the action is logout, call the logout function
+     * 
+     * @return Nothing.
+     */
     public function index()
     {
         if ($_REQUEST['action'] == 'login') {
@@ -22,6 +28,7 @@ class UsersController extends Controller
         }
     }
 
+    /* Checking if the user is logged in. */
     public function login()
     {
         if (!empty($_POST)) {
@@ -31,6 +38,10 @@ class UsersController extends Controller
             if (!empty($email) && !empty($password)) {
                 $loginOk = $this->model->handleLogin($email, $password);
 
+
+                /* Checking if the login is ok, if it is, it sets the cart to an empty array 
+and redirects to the home
+page, if it is not, it sets a message and redirects to the login page. */
 
                 if ($loginOk) {
                     Session::set('cart', []);
@@ -42,6 +53,8 @@ class UsersController extends Controller
                 return;
             }
 
+            /* Checking if the email and password are empty, if they are, it sets a message and
+            redirects to the login page, if they are not, it does nothing. */
             Session::setMessage("password or email is empty");
             header("Location: /login");
         } else {
@@ -49,6 +62,9 @@ class UsersController extends Controller
         }
     }
 
+    /**
+     * @return Nothing.
+     */
     public function register()
     {
         if (!empty($_POST)) {
@@ -71,6 +87,10 @@ class UsersController extends Controller
         }
     }
 
+    /**
+     * It destroys the session and redirects the user to the home page.
+     * s
+     */
     public function logout()
     {
         Session::destroy();

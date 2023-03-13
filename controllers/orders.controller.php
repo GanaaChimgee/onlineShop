@@ -7,9 +7,17 @@ class OrdersController extends Controller
         $this->model = new Order();
     }
 
-    // buh order-uudiin list-g duudah func....
+
+    /**
+     * If the request has an id, show the order details. If the request has an action, do the action. If
+     * the request has no action, list all orders.
+     * 
+     * @return The return statement is used to end execution of the current function, and returns its
+     * argument as the value of the function call. If no parameter is provided, NULL will be returned.
+     */
     public function index()
     {
+
         if (array_key_exists('id', $_REQUEST)) {
             $this->showOrderDetails();
             return;
@@ -46,6 +54,9 @@ class OrdersController extends Controller
         }
     }
 
+    /**
+     * A function that is used to edit an order.
+     */
     public function confirm()
     {
         return (new View([
